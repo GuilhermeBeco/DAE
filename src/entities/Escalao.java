@@ -36,7 +36,7 @@ public class Escalao {
         this.name = name;
         this.startAge = startAge;
         this.endAge = endAge;
-        this.modalidades= new LinkedHashSet<Modalidade>();
+        this.modalidades= new LinkedHashSet<Modalidade>() ;
     }
 
     public int getId() {
