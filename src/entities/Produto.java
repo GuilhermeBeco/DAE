@@ -7,15 +7,15 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 
 @Entity
-@Table(name = "ESCALOES")
+@Table(name = "PRODUTOS")
 @NamedQueries({
         @NamedQuery(
-                name = "getAllEscaloes",
-                query = "SELECT e FROM Escalao e ORDER BY e.name" // JPQL
+                name = "getAllProdutos",
+                query = "SELECT p FROM Produto p ORDER BY p.name" // JPQL
         )
 })
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Escalao {
+public class Produto {
     @Id
     private int id;
     @NotNull
@@ -23,19 +23,47 @@ public class Escalao {
     @NotNull
     private String descricao;
     @NotNull
-    private int endAge;
-    @ManyToMany(mappedBy = "escaloes")
-    private Collection<Modalidade> modalidades;
+    private float valorBase;
 
-    public Escalao() {
-        this.modalidades= new LinkedHashSet<Modalidade>();
+    public Produto() {
     }
 
-    public Escalao(int id, String name, int startAge, int endAge, LinkedHashSet<Modalidade> modalidades) {
+    public Produto(int id, String tipo, String descricao, int valorBase) {
         this.id = id;
-        this.name = name;
-        this.startAge = startAge;
-        this.endAge = endAge;
-        this.modalidades=modalidades;
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.valorBase = valorBase;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public float getValorBase() {
+        return valorBase;
+    }
+
+    public void setValorBase(int valorBase) {
+        this.valorBase = valorBase;
     }
 }
