@@ -1,39 +1,30 @@
 package entities;
 
+import org.hibernate.validator.constraints.Email;
+import org.intellij.lang.annotations.Pattern;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
-import java.util.*;
+import java.io.Serializable;
+import java.util.Set;
 
-@Entity
-@Table(name = "ATLETAS")
-@NamedQueries({
-        @NamedQuery(
-                name = "getAllAtletas",
-                query = "SELECT a FROM Atleta a ORDER BY a.name" // JPQL
-        )
+
+@NamedQueries({@NamedQuery(
+        name = "obterAtletas",
+        query = "SELECT a FROM Atleta a ORDER BY  a.name")
 })
-public class Atleta extends Socio{
-    @ManyToMany(mappedBy = "atletas")
-    private Collection<Modalidade> modalidadesPraticadas;
+@Entity
+public class Atleta extends Socio implements Serializable {
 
-    private Collection<Treinador> treinadores;
-
-    public Atleta(String username, String password, String email, String name, int socioCode, Date dataAdesao) {
-        super(username, password, email, name, socioCode, dataAdesao);
-        this.modalidadesPraticadas = new LinkedHashSet<Modalidade>();
+    public Atleta(){
 
     }
 
-    public Atleta(List<Modalidade> modalidades) {
-        this.modalidadesPraticadas = new LinkedHashSet<Modalidade>();
+    public Atleta(String username, String password, String email, String name, Set<Modalidade> modalidades){
+        super(username, password, name, email, modalidades);
     }
 
-    public Collection<Modalidade> getModalidades() {
-        return modalidadesPraticadas;
-    }
+    public void addModalidadePraticada(Modalidade modalidade){
 
-    public void addModalidadesPraticadas(Modalidade modalidade) {
-        this.modalidadesPraticadas.add(modalidade);
-        super.addModalidades(modalidade);
     }
 }
