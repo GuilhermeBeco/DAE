@@ -59,9 +59,6 @@ public class Modalidade {
     public Modalidade(int codModalidade, String nome, LinkedHashSet<Treinador> treinadores, LinkedHashSet<Atleta> atletas, LinkedHashSet<Escalao> escaloes, String dayWeek, double startTime, int duration) {
         this.codModalidade = codModalidade;
         this.nome = nome;
-        this.treinadores = treinadores;
-        this.atletas = atletas;
-        this.escaloes = escaloes;
         this.dayWeek = dayWeek;
         this.startTime = startTime;
         this.duration = duration;
