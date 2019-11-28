@@ -1,6 +1,7 @@
 package entities;
 
 
+
 import org.hibernate.validator.constraints.Email;
 import javax.persistence.*;
 import java.math.BigInteger;
