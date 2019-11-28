@@ -5,6 +5,7 @@ import dtos.TreinadorDTO;
 import ejbs.TreinadorBean;
 
 import entities.Treinador;
+import entities.Atleta;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;

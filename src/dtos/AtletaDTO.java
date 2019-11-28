@@ -11,7 +11,8 @@ public class AtletaDTO implements Serializable {
     private int code;
     private Date adesao;
     private Collection<TreinadorDTO> treinadores;
-    public AtletaDTO(String username, String password, String email, String name,int code,Date adesao) {
+   
+    public AtletaDTO(String username, String password, String email, String name) {
         this.username = username;
         this.password = password;
         this.email = email;
