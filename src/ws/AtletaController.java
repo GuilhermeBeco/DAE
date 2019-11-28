@@ -27,6 +27,8 @@ public class AtletaController {
                 atleta.getPassword(),
                 atleta.getEmail(),
                 atleta.getName(),
+                atleta.getSocioCode(),
+                atleta.getDataAdesao()
         );
     }
 
@@ -47,6 +49,7 @@ public class AtletaController {
     @POST
     @Path("/")
     public Response createNewAtleta (AtletaDTO atletaDTO){
-        Atleta atleta = atletaBean.create(atletaDTO.getUsername(), atletaDTO.getPassword(), atletaDTO.getEmail(), atletaDTO.getName());
+        Atleta atleta = atletaBean.create(atletaDTO.getUsername(), atletaDTO.getPassword(), atletaDTO.getEmail(), atletaDTO.getName(),atletaDTO.getCode(),atletaDTO.getAdesao());
+        return Response.ok().build();
     }
 }

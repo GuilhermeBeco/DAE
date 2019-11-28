@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "ADMINS")
 @NamedQueries({
         @NamedQuery(
-                name = "getAllPessoas",
+                name = "getAllAdmins",
                 query = "SELECT d FROM Admin d ORDER BY d.name" // JPQL
         )
 })

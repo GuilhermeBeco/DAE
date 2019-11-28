@@ -8,6 +8,7 @@ import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Date;
 import java.util.List;
 
 @Stateless(name = "SocioEJB")
@@ -16,8 +17,8 @@ public class SocioBean {
     @PersistenceContext
     private EntityManager em;
 
-    public Socio create(String username, String password, String email, String name){
-        Socio socio = new Socio(username, password, email, name);
+    public Socio create(String username, String password, String email, String name, int codigo, Date data){
+        Socio socio = new Socio(username, password, email, name,codigo,data);
         em.persist(socio);
         return socio;
     }
